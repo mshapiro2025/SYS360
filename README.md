@@ -154,6 +154,8 @@ cd Downloads
 ssh -i labsuser.pem ec2-user@[public IP]
 ```
 
+* end lab when done
+
 ## Lab Notes: AWS Learner Lab
 
 * AWS Academy Canvas -> AWS Academy Learner Lab -> Modules -> Launch AWS Academy Learner Lab -> Start Lab -> click on AWS icon when it turns green
@@ -166,3 +168,4 @@ ssh -i labsuser.pem ec2-user@[public IP]
   * HTTPS from anywhere
   * SSH from My IP
 * create security group
+* end lab when done
