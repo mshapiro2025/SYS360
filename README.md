@@ -142,3 +142,14 @@
 ## Lab Notes: AWS Sandbox
 
 * AWS Academy Canvas -> AWS Academy Cloud Foundations -> Modules -> Sandbox Environment -> Start Lab
+  * can run commands in the console
+* AWS -> opens the AWS console
+* in console, search for EC2 -> select Dashboard -> Instances -> Launch instances -> name, Amazon Linux, instance type t2.micro free tier, key pair vockey, allow SSH traffic from anywhere -> Launch Instance
+  * can return to Instances and click on new instance to see public IP
+* in sandbox, Details -> Show -> Download PEM
+* open Powershell
+
+```
+cd Downloads
+ssh -i labsuser.pem ec2-user@[public IP]
+```
