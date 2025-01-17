@@ -153,3 +153,16 @@
 cd Downloads
 ssh -i labsuser.pem ec2-user@[public IP]
 ```
+
+## Lab Notes: AWS Learner Lab
+
+* AWS Academy Canvas -> AWS Academy Learner Lab -> Modules -> Launch AWS Academy Learner Lab -> Start Lab -> click on AWS icon when it turns green
+* in the console, search for EC2 -> under Network and Security, Key Pairs -> Create key pair -> name, RSA, .pem for SSH (not Putty) -> Create key pair
+  * private key is automatically downloaded by browser, save somewhere safe
+  * may have to set permissions to 400 to use (especially on a Linux system)
+* under Network and Security, Security Groups -> Create security group -> make sure area is set to United states (N. Virginia) -> name, description, leave VPC default
+* inbound rules:
+  * HTTP from anywhere
+  * HTTPS from anywhere
+  * SSH from My IP
+* create security group
