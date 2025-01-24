@@ -175,3 +175,21 @@
     * used by an AWS service (like Amazon EC2) in the same account as the role
     * used by an IAM user in a different AWS account than the role
 * IAM policies are constructed with JavaScript Object Notation (JSON) and define permissions
+
+## Lab Notes: EC2 Web Server
+
+```
+ssh -i [privatekey].pem ec2-user@[public IP]
+sudo yum install httpd
+sudo systemctl start httpd
+sudo systemctl status httpd
+# can now access web server
+sudo nano /var/www/html/index.html
+sudo systemctl restart httpd
+sudo adduser shapiro
+sudo passwd shapiro
+sudo nano /etc/ssh/sshd_config
+# change PasswordAuthentication to yes
+# uncomment PermitRootLogin prohibit-password
+sudo systemctl restart sshd
+```
