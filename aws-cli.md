@@ -66,5 +66,9 @@ aws ec2 run-instances --image-id [AMI ID] --count 1 --instance-type t2.micro --k
 aws ec2 describe-instances
 # can now SSH via public IP
 aws ec2 terminate-instances --instance-ids [instance ID]
+aws ec2 describe-instances --query  'Reservations[].Instances[].[InstanceId,PublicIpAddress]' --filters Name=instance-state-name,Values=running --output text
 ```
 
+* can RDP into Windows instances by selecting instance -> Connect -> RDP client -> download file -> get password by uploading private key
+
+{% embed url="https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-instances.html" %}
