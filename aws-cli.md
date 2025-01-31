@@ -50,3 +50,21 @@
 <figure><img src=".gitbook/assets/{29F7D546-83D6-4D03-BDDC-4877A281DA31}.png" alt=""><figcaption><p>AWS CLI environment variables</p></figcaption></figure>
 
 <figure><img src=".gitbook/assets/{F29BC407-1005-4B31-A46F-9F2DA7AB6BF3}.png" alt=""><figcaption><p>AWS CLI command line options</p></figcaption></figure>
+
+## Lab Notes: AWS CLI
+
+```
+# after installing AWS CLI
+aws configure
+# region is us-east-1
+ls -a
+cd .aws
+nano credentials
+# paste in values from Learner Lab
+chmod 400 credentials
+aws ec2 run-instances --image-id [AMI ID] --count 1 --instance-type t2.micro --key-name [key pair name] --security-groups [group name] --region us-east-1
+aws ec2 describe-instances
+# can now SSH via public IP
+aws ec2 terminate-instances --instance-ids [instance ID]
+```
+
