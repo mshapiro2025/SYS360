@@ -234,3 +234,14 @@
     * bucket policies
     * access control lists
     * AWS Trusted Advisor bucket permission check
+
+## Lab Notes: Server-Side Encryption
+
+* creating an S3 bucket
+  * Services -> S3 -> Create bucket -> name, SSE-S3 encryption -> create
+    * can now upload files
+* creating a customer managed key in KMS
+  * Key Management Service -> Create a key -> Symmetric -> add alias -> add vocareum, voclabs, and vocareum-eventbridge roles in Key Administrative page -> add the same in Key Usage Permissions -> create
+* using the key to protect a file in S3 bucket
+  * navigate to S3 bucket -> Upload -> add file -> Properties -> Specify an encryption key -> override bucket settings, SSE-S3 (this uses the S3 master key)
+  * can select SSE-KMS instead to pick the previously created key
