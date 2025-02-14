@@ -40,7 +40,9 @@
   * provides the ability to manage object retention
   * provides two retention modes:
     * governance
+      * can select which users have permissions
     * compliance
+      * no users have permissions
 
 ### Protection Through Encryption
 
