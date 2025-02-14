@@ -63,6 +63,7 @@
   * SSE-KMS
     * AWS manages the keys
     * an envelope key is used for added protection
+      * encrypting a key with another key
 * AWS Key Management Service
   * provides the ability to create and manage cryptographic keys
   * uses hardware security modules (HSMs) to protect your keys
