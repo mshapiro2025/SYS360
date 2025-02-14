@@ -169,3 +169,66 @@ ssh -i labsuser.pem ec2-user@[public IP]
   * SSH from My IP
 * create security group
 * end lab when done
+
+## Lab Notes: Wordpress on AWS Instance
+
+* instance should be Amazon Linux 2 free tier (not just Amazon Linux)
+
+```
+# Initial Setup
+ssh -i [key].pem ec2-user@[public IP]
+sudo yum update -y
+sudo amazon-linux-extras install -y lamp-mariadb10.2-php7.2 php7.2
+sudo yum install -y httpd mariadb-server
+sudo systemctl start httpd
+sudo systemctl enable httpd
+sudo usermod -a -G apache ec2-user
+exit
+ssh -i [key].pem ec2-user@[public IP]
+sudo chown -R ec2-user:apache /var/www
+sudo chmod 2775 /var/www && find /var/www -type d -exec sudo chmod 2775 {} \;
+find /var/www -type f -exec sudo chmod 0664 {} \;
+echo "<?php phpinfo(); ?>" > /var/www/html/phpinfo.php
+# MariaDB
+sudo systemctl start mariadb
+sudo mysql_secure_installation
+sudo systemctl enable mariadb
+# PHP
+sudo yum install php-mbstring -y
+sudo systemctl restart httpd
+sudo systemctl restart php-fpm
+cd /var/www/html
+wget https://www.phpmyadmin.net/downloads/phpMyAdmin-latest-all-languages.tar.gz
+mkdir phpMyAdmin && tar -xvzf phpMyAdmin-latest-all-languages.tar.gz -C phpMyAdmin --strip-components 1
+rm phpMyAdmin-latest-all-languages.tar.gz
+# Installing Wordpress
+wget https://wordpress.org/latest.tar.gz
+tar -xzf latest.tar.gz
+mysql -u root -p
+CREATE USER 'wordpress-user'@'localhost' IDENTIFIED BY '[password]';
+CREATE DATABASE `wordpress-db`;
+GRANT ALL PRIVILEGES ON `wordpress-db`.* TO "wordpress-user"@"localhost";
+FLUSH PRIVILEGES;
+exit
+cp wordpress/wp-config-sample.php wordpress/wp-config.php
+nano wordpress/wp-config.php
+# define('DB_NAME', 'wordpress-db');
+# define('DB_USER', 'wordpress-user');
+# define('DB_PASSWORD', '[password]');
+# Use link below to paste values into Authentication Unique Keys and Salts section
+cp -r wordpress/* /var/www/html/
+sudo nano /etc/httpd/conf/httpd.conf
+# go to Directory /var/www/html section and change AllowOverride to All
+sudo yum install php-gd
+sudo chown -R apache /var/www
+sudo chgrp -R apache /var/www
+sudo chmod 2775 /var/www 
+find /var/www -type d -exec sudo chmod 2775 {} \;
+find /var/www -type f -exec sudo chmod 0664 {} \;
+sudo systemctl restart httpd
+sudo systemctl enable httpd && sudo systemctl enable mariadb
+sudo systemctl status mariadb
+sudo systemctl status httpd
+```
+
+{% embed url="https://api.wordpress.org/secret-key/1.1/salt/" %}
