@@ -231,4 +231,6 @@ sudo systemctl status mariadb
 sudo systemctl status httpd
 ```
 
+* can now go to the site and finish the Wordpress installation
+
 {% embed url="https://api.wordpress.org/secret-key/1.1/salt/" %}
