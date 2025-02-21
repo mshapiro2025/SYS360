@@ -17,14 +17,20 @@
 ### Amazon Relational Database Services (RDS)
 
 * managed relational database service with a choice of six popular database engines
-  * easy to administer
-    * no need for infrastructure provisioning, installing, and maintaining DB software
-  * available and durable
-    * automatic Multi-AZ data replication; automated backup, snapshots, failover
-  * highly scalable
-    * scale database compute and store with a few clicks with no app downtime
-  * fast and secure
-    * SSD storage and guaranteed provisioned I/O; data encryption at rest and in transit
+  * Amazon Aurora
+  * MySQL
+  * PostgreSQL
+  * MariaDB
+  * Microsoft SQL Server
+  * Oracle
+* easy to administer
+  * no need for infrastructure provisioning, installing, and maintaining DB software
+* available and durable
+  * automatic Multi-AZ data replication; automated backup, snapshots, failover
+* highly scalable
+  * scale database compute and store with a few clicks with no app downtime
+* fast and secure
+  * SSD storage and guaranteed provisioned I/O; data encryption at rest and in transit
 
 ### Amazon Aurora
 
