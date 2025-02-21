@@ -134,3 +134,11 @@
   * query by key with microsecond latency
   * common use cases: leaderboards, real-time analytics, caching
   * AWS services: ElastiCache
+
+### Additional Notes
+
+* structured vs. unstructured databases
+  * ex. relational vs. key-value and document
+  * structured databases are tables- rows and columns of data
+  * unstructured databases are like JSON files
+* Amazon Redshift: data warehousing relational database that serves as an alternative to Oracle
