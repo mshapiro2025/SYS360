@@ -17,6 +17,7 @@
       * data storage with a file system
       * database hosts
       * enterprise applications
+  * like a virtual hard disk in the drive
 * volume types
   * SSDs:
     * general purpose
