@@ -108,8 +108,10 @@
 * relational
   * relational data:
     * divide data among tables
-    * highly structured
+      * highly structured
+        * each row has the same number of columns and each column has data in the same format
     * relationships established via keys enforced by the system
+      * ex. values that are common across tables to link the tables together
     * data accuracy and consistency
   * referential integrity, ACID transactions, schema-on-write
   * common use cases: lift and shift, ERP, CRM, finance
