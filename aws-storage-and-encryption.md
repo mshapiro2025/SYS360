@@ -142,6 +142,7 @@
   * elastic capacity
   * supports Network File System (NFS) versions 4.0 and 4.1
   * compatible with all Linux-based AMIs for Amazon EC2
+  * network attaching block storage over IP
 * implementation
   * create your EC2 resources and launch your instance
   * create your EFS file system
