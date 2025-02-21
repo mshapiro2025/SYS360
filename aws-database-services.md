@@ -207,3 +207,14 @@
   * a secondary index lets you query the data in the table using an alternate key, in addition to queries against the primary key
 * DynamoDB doesn't require that you use indexes, but indexes give your applications more flexibility when querying your data
 * after you create a secondary index on a table, you can read data from the index in much the same way as you can do from the table
+
+## Lab Notes: DynamoDB
+
+* AWS Management Console -> DyanmoDB -> Dashboard -> Create Table -> enter table details, leave default settings -> Create
+* Tables -> choose table -> Explore Table Items -> Items returned -> Create item
+  * can add values
+  * can add new attributes with Add new attributes -> select data type -> input name and value
+* Query -> select table, attributes, add Artist value, SongTitle, can add filters
+  * only required value is Artist
+* Tables -> select table -> Indexes -> Create index
+* Imports from S3 -> Import from S3 -> Browse S3 -> format DynamoDB JSON and compression NONE
