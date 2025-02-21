@@ -150,3 +150,60 @@
   * structured databases are tables- rows and columns of data
   * unstructured databases are like JSON files
 * Amazon Redshift: data warehousing relational database that serves as an alternative to Oracle
+
+## Lecture Notes: AWS DynamoDB
+
+### NoSQL
+
+* NoSQL databases are non-tabular and store data differently than relational tables
+* a common misconception is that NoSQL databases or non-relational databases don't store relationship data well
+* NoSQL databases can store relationship data- they just store it differently than relational databases
+* NoSQL data models allow related data to be nested within a single data structure and not in separate "tables" like traditional relational databases
+* SQL vs. NoSQL
+  * in traditional relational databases like SQL, data is stored in tables with keys that correlate each table to each other
+    * fixed and structured attributes
+  * with NoSQL, the same data can be stored in an unstructured format
+    * information from all tables combined into a single JSON document
+    * each column attribute becomes a field and the information in the rows become data values associated with the field
+    * can be indexed and searched with field/value pairs
+* storage costs have drastically decreased, so data models like SQL built for reducing data duplication aren't necessary
+  * devs became the primary cost, so NoSQL databases were optimized for dev productivity
+* as storage costs decreased, the amount of data applications need to store and query increased and that data came in all forms, so defining the schema in advance became nearly impossible
+
+### DynamoDB
+
+* tables, items, and attributes are the core components that you work with
+  * a table is a collection of items
+  * each item (a record in a database) is a collection of attributes
+* uses primary keys to uniquely identify each item in a table and secondary indexes to provide more querying flexibility
+* can use DynamoDB Streams to capture data modification events in DynamoDB tables
+* on-demand pricing
+  * write operations cost more than read operations
+  * also charged by data stored
+
+#### Tables
+
+* similar to other database systems, DynamoDB stores data in tables
+* a table is a collection of data
+* ex. a table called People stores personal contact information
+
+#### Items
+
+* an item is a group of attributes that is uniquely identifiable among all of the other items
+* ex. in the Peoples table, each item represents a person
+* items in DynamoDB are similar to rows, records, or tuples in other database systems
+* no limit to the number of items you can store in a table
+
+#### Attributes
+
+* each item is composed of one or more attributes
+  * a fundamental data element, something that does not need to be broken down any further
+* an item in the People table contains attributes called PersonID, FirstName, LastName, etc.
+* attributes in DynamoDB are similar in many ways to fields or columns in other database systems
+
+#### Secondary Indexes
+
+* can create one or more secondary indexes on a table
+  * a secondary index lets you query the data in the table using an alternate key, in addition to queries against the primary key
+* DynamoDB doesn't require that you use indexes, but indexes give your applications more flexibility when querying your data
+* after you create a secondary index on a table, you can read data from the index in much the same way as you can do from the table
