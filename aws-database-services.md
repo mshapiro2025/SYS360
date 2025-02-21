@@ -35,6 +35,8 @@
 ### Amazon Aurora
 
 * MySQL and PostgreSQL-compatible relational database built for the cloud
+* Amazon's own optimized database engine that works in EC2
+  * why it works much faster and has better availability
 * performance and availability of commercial-grade databases at 1/10th the cost
 * performance and scalability
   * 5x throughput of standard MySQL and 3x of standard PostgreSQL; scale-out to 15 read replicas
