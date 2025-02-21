@@ -80,6 +80,7 @@
 ### Amazon Storage: S3
 
 * data is stored as objects in buckets
+  * object-oriented
 * virtually unlimited storage
   * single object is limited to 5TB
 * designed for 11 9s of durability
