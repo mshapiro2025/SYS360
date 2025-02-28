@@ -26,11 +26,12 @@
 * easy to administer
   * no need for infrastructure provisioning, installing, and maintaining DB software
 * available and durable
-  * automatic Multi-AZ data replication; automated backup, snapshots, failover
+  * automatic Multi-AZ data replication; automated backup, snapshots, failover, automated patching
 * highly scalable
   * scale database compute and store with a few clicks with no app downtime
 * fast and secure
   * SSD storage and guaranteed provisioned I/O; data encryption at rest and in transit
+* good for complex queries
 
 ### Amazon Aurora
 
@@ -76,10 +77,13 @@
 * price:
   * RDS is generally lower cost
   * Aurora is generally higher cost due to better performance
+* good for high availability and automated backups as an alternative to MySQL
 
 ### Amazon DynamoDB
 
 * fast and flexible key value database for any scale
+  * extremely fast performance, fast scalability, flexibility in database schema
+* good for ecommerce
 * performance at scale:
   * consistent, single-digit millisecond response times at any scale; build applications with virtually unlimited throughput
 * serverless:
@@ -88,6 +92,8 @@
   * encrypts all data by default and fully integrates with AWS IAM for robust security
 * global database for global users and apps:
   * build global applications with fast access to local data by easily replicating tables across multiple regions
+* functions:
+  * use scan function to find an item using an attribute other than the item's primary key
 
 ### Amazon DocumentDB
 
@@ -150,6 +156,7 @@
   * structured databases are tables- rows and columns of data
   * unstructured databases are like JSON files
 * Amazon Redshift: data warehousing relational database that serves as an alternative to Oracle
+  * good for analyzing data using standard SQL and existing business intelligence tools
 
 ## Lecture Notes: AWS DynamoDB
 
