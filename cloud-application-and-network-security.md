@@ -45,3 +45,49 @@
 * IPSec is cryptographic security to protect communications over an IP network
   * IPSec includes protocols for establishing mutual authentication at the beginning of the session and negotiating cryptographic keys to be used during the session
   * IPSec supports network level peer authentication, data origin authentication, data integrity, encryption, and relay protection
+
+## Lab Notes: TLS for LAMP Stack
+
+```
+ssh -i [key.pem] ec2-user@[public-IP]
+sudo systemctl is-enabled httpd
+sudo yum update -y
+sudo yum install -y mod_ssl
+cd /etc/pki/tls/certs
+sudo ./make-dummy-cert localhost.crt
+sudo nano /etc/httpd/conf.d/ssl.conf
+# comment out SSLCertificateKeyFile line
+sudo systemctl restart httpd
+sudo nano /etc/httpd/conf.d/ssl.conf
+# comment out SSLProtocol all -SSLv3
+# add in SSLProtocol -SSLv2 -SSLv3 -TLSv1 -TLSv1.1 +TLSv1.2
+# comment out SSLCipherSuite line
+yum list installed | grep httpd
+yum list installed | grep openssl
+# use the Mozilla SSL Configuration Generator with httpd and openssl version from previous commands to get new SSLCipherSuite
+sudo nano /etc/httpd/conf.d/ssl.conf
+# add new SSLCipherSuite line from generator
+# uncomment SSLHonorCipherOrder line
+sudo systemctl restart httpd
+```
+
+{% embed url="https://ssl-config.mozilla.org/#server=apache&version=2.4.62&config=intermediate&openssl=1.1.0&guideline=5.7" %}
+
+## Lab Notes: Let's Encrypt for TLS
+
+```
+sudo wget -r --no-parent -A 'epel-release-*.rpm' https://archives.fedoraproject.org/pub/archive/epel/7/x86_64/Packages/e/
+sudo rpm -Uvh archives.fedoraproject.org/pub/archive/epel/7/x86_64/Packages/e/epel-release-*.rpm
+sudo yum-config-manager --enable epel* 
+sudo nano /etc/httpd/conf/httpd.conf
+# add in: 
+<VirtualHost *:80>
+    DocumentRoot "/var/www/html"
+    ServerName "example.com" 
+ServerAlias "example.com" 
+</VirtualHost>
+# where example.com is the duckdns record made
+sudo systemctl restart httpd
+```
+
+{% embed url="https://www.duckdns.org/domains" %}
