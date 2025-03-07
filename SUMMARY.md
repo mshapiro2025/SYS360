@@ -7,3 +7,4 @@
 * [Cloud Platform and Infrastructure Security](cloud-platform-and-infrastructure-security.md)
 * [AWS Database Services](aws-database-services.md)
 * [Cloud Application and Network Security](cloud-application-and-network-security.md)
+* [Amazon Lightsail](amazon-lightsail.md)
