@@ -54,7 +54,7 @@
 
 ### AWS System Status Checks
 
-* monitor the AWS systems required to use your instance to ensure that they are working prpoerly
+* monitor the AWS systems required to use your instance to ensure that they are working properly
 * these checks detect problems with your instance that require AWS involvement to repair
 * when a system status check fails, you can choose to wait for AWS to fix the issue or you can resolve it yourself (ex. by stopping and restarting or terminating and replacing an instance)
 * examples of problems that cause system status checks to fail include:
