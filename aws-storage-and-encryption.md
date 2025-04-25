@@ -232,7 +232,7 @@
     * it is essential to manage and control the data access
     * follow the principle of least privilege and consider using S3 encryption
   * tools and options for controlling access to S3 data include:
-    * Amaozn S3 Block Public Access feature
+    * Amazon S3 Block Public Access feature
     * IAM policies
     * bucket policies
     * access control lists
